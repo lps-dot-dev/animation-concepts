@@ -14,7 +14,7 @@ const createScene = () => {
 
   W.camera({z:0});
   W.light({y: -1,z:-.5});
-  W.cylinder({n: "sea", b: Colors.blue, w: 6, d: 4, x: -3, y: -4.5, z: -2.35, rx:-80});
+  W.cylinder({n: "sea", b: Colors.blue, w: 8, d: 4, x: -4, y: -4.5, z: -2.35, rx:-80});
 };
 
 /** @todo Attach cylinder to camera, and attempt to rotate then */
