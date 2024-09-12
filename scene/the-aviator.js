@@ -1,5 +1,7 @@
 import { defineCube } from "../models/cube";
 import { defineCylinder } from "../models/cylinder";
+
+import { createAirplane } from "../models/airplane";
 import { createSky } from "../models/sky";
 
 const Colors = {
@@ -24,6 +26,9 @@ const createScene = () => {
   W.light({x: -2, y: -1, z:-1});
   W.cylinder({n: SeaName, b: Colors.blue, w: 8, d: 4, x: -4, y: -4.5, z: -2.35, rx:-80});
   createSky(10);
+
+  const airplaneName = "a1";
+  createAirplane(airplaneName, new DOMPoint(-3, -0.25, -5));
 };
 
 const loopScene = () => {
