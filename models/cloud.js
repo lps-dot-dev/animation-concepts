@@ -1,3 +1,5 @@
+import { Colors } from "../scene/the-aviator";
+
 /**
  * Create clouds using a random number of box geometry
  * @param {string} groupName
@@ -10,7 +12,7 @@ const createCloud = (groupName, startingPoint = new DOMPoint()) => {
 	var cloudCubes = 3+Math.floor(Math.random()*3);
 	for (var i=0; i<cloudCubes; i++) {
 		// create the mesh by cloning the geometry
-		var cube = {n: `${groupName}${i}`, g: groupName, b: "0xF5986E"}; 
+		var cube = {n: `${groupName}${i}`, g: groupName, b: Colors.white + "80"}; 
 		
 		// set the position and the rotation of each cube randomly
 		cube.x = i*0.25;
