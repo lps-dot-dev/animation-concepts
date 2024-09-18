@@ -1,7 +1,7 @@
 import { defineCube } from "../models/cube";
 import { defineCylinder } from "../models/cylinder";
 
-import { createAirplane } from "../models/airplane";
+import { BladeSuffix, createAirplane } from "../models/airplane";
 import { createSky } from "../models/sky";
 
 const Colors = {
@@ -13,6 +13,7 @@ const Colors = {
 	blue:"#68c3c0",
 };
 
+const AirplaneName = "a1";
 const SeaName = "sea";
 
 const createScene = () => {
@@ -27,8 +28,7 @@ const createScene = () => {
   W.cylinder({n: SeaName, b: Colors.blue, w: 8, d: 4, x: -4, y: -4.5, z: -2.35, rx:-80});
   createSky(10);
 
-  const airplaneName = "a1";
-  createAirplane(airplaneName, new DOMPoint(-3, -0.25, -5));
+  createAirplane(AirplaneName, new DOMPoint(-3, -0.25, -5));
 };
 
 /** @return {int} An interval ID that can be used with `clearInterval` */
@@ -51,7 +51,10 @@ const loopScene = () => {
         cloudGroupX = 5;
       }
       W.move({n:cloudGroupName, x: cloudGroupX - loopSpeed, y: cloudGroupY + (Math.cos(radians) * 0.01), rx: -degrees});
-    })
+    });
+
+    W.move({n: AirplaneName + BladeSuffix + "0", rx: (degrees + 180) * 25});
+    W.move({n: AirplaneName + BladeSuffix + "1", rx: degrees * 25});
   }, 16);
 };
 
