@@ -31,10 +31,11 @@ const createScene = () => {
   createAirplane(airplaneName, new DOMPoint(-3, -0.25, -5));
 };
 
+/** @return {int} An interval ID that can be used with `clearInterval` */
 const loopScene = () => {
   var degrees = 0;
   const loopSpeed = 0.05;
-  setInterval(() => {
+  return setInterval(() => {
     // Convert degrees into radians
     degrees = degrees < 360 ? degrees + 1 : 0;
     var radians = degrees * (Math.PI / 180);

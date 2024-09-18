@@ -25,6 +25,8 @@ main {
 }
 .content {
   flex: 1; /* Takes up the remaining height */
+  display: flex;
+  justify-content: center;
 }
 .open {
   position: fixed;
