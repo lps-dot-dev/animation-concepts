@@ -1,9 +1,25 @@
+import { initMenuFunctionality } from "./lib/menu";
+import { resizeElement } from "./lib/resize";
 import { createScene, loopScene } from "./scene/the-aviator";
 
-onload = () => {
-  // Setup 3D engine
-  W.reset(c);
+const canvas = document.getElementById("c");
+var intervalId = 0;
 
+onload = () => {
+  initMenuFunctionality();
+  resizeElement(canvas);
+
+  W.reset(canvas);
   createScene();
-  loopScene();
+  intervalId = loopScene();
 };
+
+/** @todo Resizing leads to twitchy animation */
+// onresize = () => {
+//   clearInterval(intervalId);
+//   resizeElement(canvas);
+
+//   W.reset(canvas);
+//   createScene();
+//   intervalId = loopScene();
+// };

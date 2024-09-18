@@ -1,4 +1,30 @@
-<script src="/lib/w.min.lite.js"></script>
-<style>#c{height:100%;width:100%;overflow:hidden;background:#ffffff;}</style>
-<body><canvas id=c></canvas></body>
-<script type="module" src="/main.js"></script>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/lib/w.min.lite.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 class="title">Animation Concepts</h1>
+        <h2 class="scene">Scene: The Aviator</h2>
+        <div class="open">
+          <span class="cls"></span>
+          <span class="mid">
+            <ul class="sub-menu">
+              <li>
+                <a class="scene-option" href="#the-aviator" title="The Aviator">The Aviator</a>
+                <a class="scene-option" href="#the-test" title="The Test">The Test</a>
+              </li>
+            </ul>
+          </span>
+          <span class="cls"></span>
+        </div>
+      </header>
+      <section class="content">
+        <canvas id="c"></canvas>
+      </section>
+    </main>
+  </body>
+  <script type="module" src="/main.js"></script>
+</html>
