@@ -1,6 +1,6 @@
 import { initMenuFunctionality } from "./lib/menu";
 import { resizeElement } from "./lib/resize";
-import { createScene, loopScene } from "./scene/the-aviator";
+import { addEventListeners, createScene, loopScene } from "./scene/the-aviator";
 
 const canvas = document.getElementById("c");
 var intervalId = 0;
@@ -10,6 +10,7 @@ onload = () => {
   resizeElement(canvas);
 
   W.reset(canvas);
+  addEventListeners();
   createScene();
   intervalId = loopScene();
 };
