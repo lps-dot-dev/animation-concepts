@@ -1,7 +1,7 @@
 import { defineCube } from "../models/cube";
 import { defineCylinder } from "../models/cylinder";
 
-import { BladeSuffix, createAirplane } from "../models/airplane";
+import { BladeSuffix, createAirplane, PilotHairStrandSuffix } from "../models/airplane";
 import { createSky } from "../models/sky";
 
 const Colors = {
@@ -88,6 +88,12 @@ const loopScene = () => {
       W.move({n:cloudGroupName, x: cloudGroupX - loopSpeed, y: cloudGroupY + (Math.cos(radians) * 0.01), rx: -degrees});
     });
 
+    // Animate hair flowing through the wind
+    Array(12).keys().forEach(hairStrandIndex => {
+      var hairStrandName = AirplaneName + PilotHairStrandSuffix + hairStrandIndex;
+      W.move({n:hairStrandName, h: 0.05 + Math.cos(radians * 5 + (hairStrandIndex/3)) * 0.02});
+    });
+
     // Rotate the propeller blades
     W.move({n: AirplaneName + BladeSuffix + "0", rx: (degrees + 180) * 25});
     W.move({n: AirplaneName + BladeSuffix + "1", rx: degrees * 25});
@@ -110,8 +116,7 @@ const updatePlane = () => {
     // Move the plane at each frame by adding a fraction of the remaining distance
     y: W.current[AirplaneName].y + ((targetY - W.current[AirplaneName].y) * 0.1),
     // Rotate the plane proportionally to the remaining distance
-    rz: planeAngle / 3,
-    rz: planeAngle / 2
+    rz: planeAngle / 3
   });
 }
 

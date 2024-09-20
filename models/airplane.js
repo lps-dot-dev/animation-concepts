@@ -92,4 +92,4 @@ const createPilot = (groupName) => {
 	}
 };
 
-export { BladeSuffix, createAirplane };
+export { BladeSuffix, createAirplane, PilotHairStrandSuffix };
