@@ -1,18 +1,33 @@
 import { initMenuFunctionality } from "./lib/menu";
 import { resizeElement } from "./lib/resize";
-import { addEventListeners, createScene, loopScene } from "./scene/the-aviator";
+import { createScene as createLionScene, SceneName as LionSceneName } from "./scene/chill-the-lion";
+import { addEventListeners, createScene as createAviatorScene, loopScene, SceneName as AviatorSceneName } from "./scene/the-aviator";
 
 const canvas = document.getElementById("c");
 var intervalId = 0;
 
+function setScene(sceneName) {
+  clearInterval(intervalId);
+  W.reset(canvas);
+
+  switch (sceneName) {
+    case AviatorSceneName:
+      addEventListeners();
+      createAviatorScene();
+      intervalId = loopScene();
+      break;
+    case LionSceneName:
+      createLionScene();
+      break;
+  }
+}
+
 onload = () => {
-  initMenuFunctionality();
+  initMenuFunctionality(setScene);
   resizeElement(canvas);
 
   W.reset(canvas);
-  addEventListeners();
-  createScene();
-  intervalId = loopScene();
+  createLionScene();
 };
 
 /** @todo Resizing leads to twitchy animation */

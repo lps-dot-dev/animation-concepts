@@ -15,6 +15,7 @@ const Colors = {
 
 const AirplaneName = "a1";
 const SeaName = "sea";
+const SceneName = "The Aviator";
 
 var mouseNormalValues = new DOMPoint();
 
@@ -129,4 +130,4 @@ function normalize(v, vmin, vmax, tmin, tmax){
 	return tv;
 }
 
-export { addEventListeners, createScene, loopScene, Colors };
+export { addEventListeners, createScene, loopScene, Colors, SceneName };
